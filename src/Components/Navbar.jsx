@@ -13,6 +13,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Close } from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";
 import { useNavigate, Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
@@ -38,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "none !important",
     padding: "8px 30px !important",
     marginRight: "100px !important",
+  },
+  paper: {
+    background: "rgba(98, 11, 214, .8) !important",
   },
 }));
 
@@ -118,19 +122,41 @@ export default function MenuAppBar(props) {
               <Drawer
                 anchor={"right"}
                 open={drawer}
+                classes={{ paper: classes.paper }}
                 onClose={() => setDrawer(false)}>
-                <Box style={{ width: 250 }} role='presentation'>
+                <Box
+                  style={{
+                    width: 250,
+                  }}
+                  role='presentation'>
                   <List>
                     <ListItem
                       button
+                      style={{
+                        textAlign: "center",
+                        width: 50,
+                        height: 30,
+                        marginTop: 0,
+                        marginBottom: 0,
+                        marginLeft: "auto",
+                      }}
                       onClick={() => {
                         setDrawer(false);
-                        navigate("/events");
+                      }}>
+                      <ListItemText primary={<Close />} />
+                    </ListItem>
+                    <ListItem
+                      button
+                      style={{ textAlign: "center" }}
+                      onClick={() => {
+                        setDrawer(false);
+                        navigate("/");
                       }}>
                       <ListItemText primary={"Home"} />
                     </ListItem>
                     <ListItem
                       button
+                      style={{ textAlign: "center" }}
                       onClick={() => {
                         setDrawer(false);
                         navigate("/our-work");
@@ -142,6 +168,7 @@ export default function MenuAppBar(props) {
                     </ListItem>
                     <ListItem
                       button
+                      style={{ textAlign: "center" }}
                       onClick={() => {
                         setDrawer(false);
                         navigate("/team");
@@ -150,6 +177,7 @@ export default function MenuAppBar(props) {
                     </ListItem>
                     <ListItem
                       button
+                      style={{ textAlign: "center" }}
                       onClick={() => {
                         setDrawer(false);
                         navigate("/contact-us");
@@ -161,7 +189,13 @@ export default function MenuAppBar(props) {
                       onClick={() => {
                         setDrawer(false);
                       }}
-                      style={{ background: theme.palette.primary.main }}>
+                      style={{
+                        background: theme.palette.primary.main,
+                        textAlign: "center",
+                        width: 100,
+                        margin: "0 auto",
+                        padding: "4px 10px",
+                      }}>
                       <ListItemText primary={"Login"} />
                     </ListItem>
                   </List>

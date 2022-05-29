@@ -196,26 +196,14 @@ const HomePage = () => {
       <div className='w-75 row mx-auto'>
         <h1 className='col-md-4 col-12'>Accessible on all devices</h1>
         <div className='col-md-8 col-12 d-flex align-items-center justify-content-center flex-wrap'>
-          <div className={`${classes.accessibleDevice}`}>
-            <img src={BoxImage2} style={{ width: 100 }} />
-            <p>Computer</p>
-          </div>
-          <div className={`${classes.accessibleDevice}`}>
-            <img src={BoxImage2} style={{ width: 100 }} />
-            <p>Computer</p>
-          </div>
-          <div className={`${classes.accessibleDevice}`}>
-            <img src={BoxImage2} style={{ width: 100 }} />
-            <p>Computer</p>
-          </div>
-          <div className={`${classes.accessibleDevice}`}>
-            <img src={BoxImage2} style={{ width: 100 }} />
-            <p>Computer</p>
-          </div>
-          <div className={`${classes.accessibleDevice}`}>
-            <img src={BoxImage2} style={{ width: 100 }} />
-            <p>Computer</p>
-          </div>
+          {[0, 1, 2, 3, 4].map((item) => {
+            return (
+              <div className={`${classes.accessibleDevice}`}>
+                <img src={BoxImage2} style={{ width: 100 }} />
+                <p>Computer</p>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div style={{ height: 150 }} />
@@ -228,94 +216,39 @@ const HomePage = () => {
           autoplayTimeout={2000}
           responsive={responsive}
           loop>
-          <div
-            className={`item d-flex flex-column justify-content-center ${classes.workBox}`}>
-            <img
-              style={{ height: 300, width: "100%", cursor: "pointer" }}
-              src={Work1}
-            />
-            <div className={`${classes.hoveredText} hoveredText w-100`}>
-              <h6 className='mt-2' style={{ cursor: "pointer" }}>
-                vr connect{" "}
-                <span
-                  className='ms-2'
-                  style={{ color: theme.palette.primary.main }}>
-                  <ArrowForwardRounded
-                    style={{
-                      transform: "rotate(-45deg)",
-                      color: theme.palette.primary.main,
-                    }}
-                  />
-                </span>
-              </h6>
-            </div>
-          </div>
-          <div
-            className={`item d-flex flex-column justify-content-center ${classes.workBox}`}>
-            <img
-              style={{ height: 300, width: "100%", cursor: "pointer" }}
-              src={Work2}
-            />
-            <div className={`${classes.hoveredText} hoveredText w-100`}>
-              <h6 className='mt-2' style={{ cursor: "pointer" }}>
-                vr connect{" "}
-                <span
-                  className='ms-2'
-                  style={{ color: theme.palette.primary.main }}>
-                  <ArrowForwardRounded
-                    style={{
-                      transform: "rotate(-45deg)",
-                      color: theme.palette.primary.main,
-                    }}
-                  />
-                </span>
-              </h6>
-            </div>
-          </div>
-          <div
-            className={`item d-flex flex-column justify-content-center ${classes.workBox}`}>
-            <img
-              style={{ height: 300, width: "100%", cursor: "pointer" }}
-              src={Work3}
-            />
-            <div className={`${classes.hoveredText} hoveredText w-100`}>
-              <h6 className='mt-2' style={{ cursor: "pointer" }}>
-                vr connect{" "}
-                <span
-                  className='ms-2'
-                  style={{ color: theme.palette.primary.main }}>
-                  <ArrowForwardRounded
-                    style={{
-                      transform: "rotate(-45deg)",
-                      color: theme.palette.primary.main,
-                    }}
-                  />
-                </span>
-              </h6>
-            </div>
-          </div>
-          <div
-            className={`item d-flex flex-column justify-content-center ${classes.workBox}`}>
-            <img
-              style={{ height: 300, width: "100%", cursor: "pointer" }}
-              src={Work4}
-            />
-            <div className={`${classes.hoveredText} hoveredText w-100`}>
-              <h6 className='mt-2' style={{ cursor: "pointer" }}>
-                vr connect{" "}
-                <span
-                  className='ms-2'
-                  style={{ color: theme.palette.primary.main }}>
-                  <ArrowForwardRounded
-                    style={{
-                      transform: "rotate(-45deg)",
-                      color: theme.palette.primary.main,
-                    }}
-                  />
-                </span>
-              </h6>
-            </div>
-          </div>
+          {[
+            { image: Work1 },
+            { image: Work2 },
+            { image: Work3 },
+            { image: Work4 },
+          ].map((item) => {
+            return (
+              <div
+                className={`item d-flex flex-column justify-content-center ${classes.workBox}`}>
+                <img
+                  style={{ height: 300, width: "100%", cursor: "pointer" }}
+                  src={Work1}
+                />
+                <div style={{ height: 100 }}>
+                  <div className={`${classes.hoveredText} hoveredText w-100`}>
+                    <h6 className='mt-2' style={{ cursor: "pointer" }}>
+                      vr connect{" "}
+                      <span
+                        className='ms-2'
+                        style={{ color: theme.palette.primary.main }}>
+                        <ArrowForwardRounded
+                          style={{
+                            transform: "rotate(-45deg)",
+                            color: theme.palette.primary.main,
+                          }}
+                        />
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </OwlCarousel>
       </div>
     </div>

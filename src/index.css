@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 * {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Orbitron", sans-serif !important;
+  letter-spacing: 1px !important;
 }
 body,
 html {
@@ -55,4 +56,19 @@ input[type="number"] {
 
 .owl-item.active:hover {
   z-index: 999999999999;
+}
+
+@media only screen and (max-width: 768px) {
+  .home-page {
+    background-image: url("./images/MobileHomePage.png") !important;
+  }
+  .our-work {
+    background-image: url("./images/MobileOurWork.png") !important;
+  }
+  .our-team {
+    background-image: url("./images/MobileOurTeam.png") !important;
+  }
+  .contact-us {
+    background-image: url("./images/MobileContactUs.png") !important;
+  }
 }
