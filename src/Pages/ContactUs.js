@@ -1,8 +1,11 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-
+import { Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Mail, LocationOn } from "@mui/icons-material";
+
+import ContactUsBg from "../images/ContactUs.png";
+import MobileContactUsBg from "../images/MobileContactUs.png";
 
 const useStyles = makeStyles((theme) => ({
   simpleBox: {
@@ -21,6 +24,27 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     marginTop: 5,
   },
+  submitBtn: {
+    background: "#E73B6A",
+    color: "white",
+    padding: "10px 20px",
+    float: "right",
+    border: "none",
+    outline: "none",
+    borderRadius: 0,
+  },
+  pageTop: {
+    background: `url('${ContactUsBg}')`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100%",
+    backgroundPosition: "top",
+    [theme.breakpoints.down("md")]: {
+      background: `url('${MobileContactUsBg}')`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "180%",
+      backgroundPosition: "top",
+    },
+  },
 }));
 
 function ContactUs(props) {
@@ -28,68 +52,74 @@ function ContactUs(props) {
   const classes = useStyles();
 
   return (
-    <div className='d-flex align-items-center justify-content-center flex-column'>
-      <p className='mt-5 h2'>Get in Touch</p>
+    <div className={classes.pageTop}>
+      <props.navbar />
+      <div className='d-flex align-items-center justify-content-center flex-column'>
+        <p className='mt-5 h2'>Get in Touch</p>
 
-      <div className='container mt-5'>
-        <div className='row'>
-          <div className='col-md-6 col-12 px-4 order-md-first order-last'>
-            <div className={`${classes.simpleBox} mx-md-0 mx-auto p-3 mb-2`}>
-              <p
-                className='m-0 d-flex align-items-center justyf-content-center'
-                style={{ fontSize: 12 }}>
-                <div className='mx-3'>
-                  <Mail />
-                </div>
-                info@virtustech.co.uk
-              </p>
-            </div>
-            <div className={`${classes.simpleBox} mx-md-0 mx-auto p-3 mb-2`}>
-              <p
-                className='m-0 d-flex align-items-center justyf-content-center'
-                style={{ fontSize: 12 }}>
-                <div className='mx-3'>
-                  <LocationOn />
-                </div>
-                Tramshed Tech Pendyris St Cardiff CF11 9PH
-              </p>
-            </div>
-            <br />
-            <br />
-            <br />
-          </div>
-          <div className='col-md-6 col-12 px-4 mt-md-0 mt-3 order-md-last order-first'>
-            <form>
-              <label>
-                Name <span style={{ color: "#E73B6A" }}>*</span>
-              </label>
-              <input type='text' className={classes.input} />
-              <div className='row mt-1'>
-                <div className='col-md-6'>
-                  <label>
-                    Email <span style={{ color: "#E73B6A" }}>*</span>
-                  </label>
-                  <input type='text' className={classes.input} />
-                </div>
-                <div className='col-md-6'>
-                  <label>
-                    Company <span style={{ color: "#E73B6A" }}>*</span>
-                  </label>
-                  <input type='text' className={classes.input} />
-                </div>
+        <div className='container mt-5'>
+          <div className='row'>
+            <div className='col-md-6 col-12 px-4 order-md-first order-last'>
+              <div className={`${classes.simpleBox} mx-md-0 mx-auto p-3 mb-2`}>
+                <p
+                  className='m-0 d-flex align-items-center justyf-content-center'
+                  style={{ fontSize: 12 }}>
+                  <div className='mx-3'>
+                    <Mail />
+                  </div>
+                  info@virtustech.co.uk
+                </p>
               </div>
-              <label>
-                Tell us about your project{" "}
-                <span style={{ color: "#E73B6A" }}>*</span>
-              </label>
-              <textarea
-                type='text'
-                className={classes.input}
-                style={{ resize: "none", height: 150 }}
-              />
-            </form>
-            <br />
-            <br />
+              <div className={`${classes.simpleBox} mx-md-0 mx-auto p-3 mb-2`}>
+                <p
+                  className='m-0 d-flex align-items-center justyf-content-center'
+                  style={{ fontSize: 12 }}>
+                  <div className='mx-3'>
+                    <LocationOn />
+                  </div>
+                  Tramshed Tech Pendyris St Cardiff CF11 9PH
+                </p>
+              </div>
+              <br />
+              <br />
+              <br />
+            </div>
+            <div className='col-md-6 col-12 px-4 mt-md-0 mt-3 order-md-last order-first'>
+              <form>
+                <label>
+                  Name <span style={{ color: "#E73B6A" }}>*</span>
+                </label>
+                <input type='text' className={classes.input} />
+                <div className='row mt-1'>
+                  <div className='col-md-6'>
+                    <label>
+                      Email <span style={{ color: "#E73B6A" }}>*</span>
+                    </label>
+                    <input type='text' className={classes.input} />
+                  </div>
+                  <div className='col-md-6'>
+                    <label>
+                      Company <span style={{ color: "#E73B6A" }}>*</span>
+                    </label>
+                    <input type='text' className={classes.input} />
+                  </div>
+                </div>
+                <label>
+                  Tell us about your project{" "}
+                  <span style={{ color: "#E73B6A" }}>*</span>
+                </label>
+                <textarea
+                  type='text'
+                  className={classes.input}
+                  style={{ resize: "none", height: 150 }}
+                />
+                <Button variant='contained' className={classes.submitBtn}>
+                  Submit
+                </Button>
+              </form>
+              <br />
+              <br />
+            </div>
           </div>
         </div>
       </div>

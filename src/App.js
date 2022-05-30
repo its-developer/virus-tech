@@ -25,9 +25,9 @@ const App = () => {
                     <item.layout
                       title={item.title}
                       rootStyle={item.rootStyle}
-                      rootClasses={item.rootClasses}>
-                      <item.component theme={theme} />
-                    </item.layout>
+                      hideBox={item.hideBox}
+                      element={item.component}
+                      rootClasses={item.rootClasses}></item.layout>
                   }
                 />
               );

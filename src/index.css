@@ -6,6 +6,7 @@
 body,
 html {
   overflow-x: hidden;
+  background: #06113d !important;
 }
 
 ::-webkit-scrollbar {
@@ -58,7 +59,7 @@ input[type="number"] {
   z-index: 999999999999;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   .home-page {
     background-image: url("./images/MobileHomePage.png") !important;
   }
@@ -71,4 +72,4 @@ input[type="number"] {
   .contact-us {
     background-image: url("./images/MobileContactUs.png") !important;
   }
-}
+} */

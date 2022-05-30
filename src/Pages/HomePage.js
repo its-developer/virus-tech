@@ -27,6 +27,11 @@ import BoxImage3 from "../images/Network Sphere.png";
 
 import RectangleBg from "../images/Rectangle 10.png";
 
+import HomePageTopGradient from "../images/Frame 1.png";
+import HomePageMoon from "../images/HomePageMoon.png";
+import HomePageAstronotes from "../images/HomePageAstronotes.png";
+import HomePageRectangle from "../images/HomePageRectangle.png";
+
 const useStyles = makeStyles((theme) => ({
   middleBoxImage: {
     [theme.breakpoints.up("md")]: {
@@ -50,6 +55,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  HomePageTopGradient: {
+    width: "100%",
+    background: `url("${HomePageTopGradient}")`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    // position: "absolute",
+    backgroundPosition: "center",
+    top: 0,
+    height: 600,
+  },
   workBox: {
     "& .hoveredText": {
       transition: ".5s ease-in-out",
@@ -65,6 +80,29 @@ const useStyles = makeStyles((theme) => ({
       "& .hoveredText": {
         display: "block",
       },
+    },
+  },
+  homePageMoon: {
+    position: "absolute",
+    bottom: "-30vw",
+    right: "-5vw",
+    width: "20vw",
+    height: "20vw",
+    [theme.breakpoints.down("md")]: {
+      width: "35vw",
+      height: "35vw",
+      bottom: "-35vw",
+    },
+  },
+  accessibleBoxBg: {
+    background: `url('${HomePageAstronotes}')`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "70% auto",
+    backgroundPosition: "center",
+    minHeight: 450,
+    [theme.breakpoints.down("md")]: {
+      backgroundPosition: "top",
+      backgroundSize: "100% auto",
     },
   },
 }));
@@ -83,23 +121,31 @@ const responsive = {
   },
 };
 
-const HomePage = () => {
+const HomePage = (props) => {
   const theme = useTheme();
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <div className={`d-flex flex-column justify-content-center py-5`}>
-        <h1 className='text-center display-3'>Virus Tech</h1>
-        <p className='mx-auto text-center' style={{ fontSize: 19 }}>
-          A no-code VR platform for businesses, where users can build and deploy
-          <br />
-          their own virtual reality worlds.
-        </p>
+      {/* <div className={classes.HomePageBoxes}></div> */}
+      <div
+        className={`d-flex flex-column justify-content-start ${classes.HomePageTopGradient}`}>
+        <div>
+          <props.navbar />
+          <h1 className='text-center display-3 mt-5 pt-3'>Virus Tech</h1>
+          <p className='mx-auto text-center' style={{ fontSize: 19 }}>
+            A no-code VR platform for businesses, where users can build and
+            deploy
+            <br />
+            their own virtual reality worlds.
+          </p>
+        </div>
       </div>
-      <div style={{ height: 300 }} />
       <div
         className='py-5'
-        style={{ backgroundImage: `url('${FooterBackgroup}')` }}>
+        style={{
+          backgroundImage: `url('${FooterBackgroup}')`,
+          position: "relative",
+        }}>
         <h1 className='text-center'>Trusted By</h1>
         <br />
         <OwlCarousel
@@ -124,6 +170,7 @@ const HomePage = () => {
             <img style={{ height: 110, width: "230px" }} src={Image4} />
           </div>
         </OwlCarousel>
+        <img src={HomePageMoon} className={classes.homePageMoon} />
       </div>
 
       <div style={{ height: 200 }} />
@@ -193,7 +240,7 @@ const HomePage = () => {
       </div>
 
       <div style={{ height: 200 }} />
-      <div className='w-75 row mx-auto'>
+      <div className={`w-75 row mx-auto ${classes.accessibleBoxBg}`}>
         <h1 className='col-md-4 col-12'>Accessible on all devices</h1>
         <div className='col-md-8 col-12 d-flex align-items-center justify-content-center flex-wrap'>
           {[0, 1, 2, 3, 4].map((item) => {
@@ -208,7 +255,7 @@ const HomePage = () => {
       </div>
       <div style={{ height: 150 }} />
 
-      <div>
+      <div style={{ position: "relative" }}>
         <h1 className='text-center display-5'>Our Work</h1>
         <div style={{ height: 30 }} />
         <OwlCarousel
